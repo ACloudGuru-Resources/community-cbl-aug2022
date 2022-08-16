@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: covid-api-deployment
+  labels:
+    app: covid-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: covid-api
+  template:
+    metadata:
+      labels:
+        app: covid-api
+    spec:
+      containers:
+      - name: covid-api
+        image: ghcr.io/davidtucker/covid-data-api-demo:sha-6f51a04
+        ports:
+        - containerPort: 8080

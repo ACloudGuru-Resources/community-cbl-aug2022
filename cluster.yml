@@ -1,0 +1,14 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: cbl-cluster
+  region: us-east-2
+
+nodeGroups:
+  - name: cbl-node-group
+    instanceType: t3.micro
+    desiredCapacity: 3
+    volumeSize: 10
+    ssh:
+      allow: false
